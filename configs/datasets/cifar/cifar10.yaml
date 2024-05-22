@@ -1,0 +1,39 @@
+_base_: configs/datasets/dataloader.yaml
+
+train_dataset:
+  name: 'cifar10'
+  root: '/datasets/CIFAR10'
+  split: 'train'
+
+  transform:
+    random_crop:
+      size: 32
+      padding: 4
+    random_horizontal_flip:
+      p: 0.5
+    to_tensor: null
+    normalize:
+      mean: [0.5, 0.5, 0.5]
+      std: [0.5, 0.5, 0.5]
+
+val_dataset:
+  name: 'cifar10'
+  root: '/datasets/CIFAR10'
+  split: 'test'
+
+  transform:
+    to_tensor: null
+    normalize:
+      mean: [0.5, 0.5, 0.5]
+      std: [0.5, 0.5, 0.5]
+
+test_dataset:
+  name: 'cifar10'
+  root: '/datasets/CIFAR10'
+  split: 'test'
+
+  transform:
+    to_tensor: null
+    normalize:
+      mean: [0.5, 0.5, 0.5]
+      std: [0.5, 0.5, 0.5]
